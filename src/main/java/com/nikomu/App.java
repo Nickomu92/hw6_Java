@@ -8,7 +8,6 @@
 package com.nikomu;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import java.util.List;
 import java.util.Scanner;
 
 public class App
@@ -96,24 +95,5 @@ public class App
                 Message.returnPrimaryMsg("Ваш выбор: ");
 
         return newMenu;
-    }
-
-    // Метод для получения объекта "Конфета" из списка по названию или идентификатору (номеру)
-    public static Candy getCandy(List<Candy> candyList, String findCandy) {
-        try {
-            int candyNumber = Integer.parseInt(findCandy);
-            for(Candy item: candyList) {
-                if(item.getId() == candyNumber) {
-                    return item;
-                }
-            }
-        } catch (Exception e) {
-            for(Candy item: candyList) {
-                if(item.getCandyName().equals(findCandy)) {
-                    return item;
-                }
-            }
-        }
-        return null;
     }
 }

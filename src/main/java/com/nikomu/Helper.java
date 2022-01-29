@@ -28,7 +28,7 @@ public class Helper {
         return formatForDateNow.format(dateNow);
     }
 
-    // Метод для получения текущей даты и времени
+    // Метод для получения текущей даты и времениг
     public static Date getCurrentDate() {
         return new Date();
     }
@@ -78,7 +78,7 @@ public class Helper {
             String message = String.format("[%s] - %s %s;", getCurrentDate(), operationType, makeFileMessage(currentCandy));
             allMessages += message + "\n";
             Helper.logger.add(new Logger(Helper.getCurrentDate(), message));
-            selectShowFile(currentCandy);
+            selectShowFile();
         } catch (NoSuchFieldException e) {
             Message.errorMsg("\n\t" + e.getMessage() + "\n");
         } catch (IllegalAccessException e) {
@@ -87,7 +87,7 @@ public class Helper {
     }
 
     // Метод для выбора типа файла
-    public static String selectFileType(Candy currentCandy) {
+    public static String selectFileType() {
         Scanner scanner = new Scanner(System.in);
         String symbol;
         String result = null;
@@ -135,8 +135,8 @@ public class Helper {
     }
 
     // Метод для выбора типа файла и отображания его содержимого
-    public static void selectShowFile(Candy currentCandy) {
-        String fileType = selectFileType(currentCandy);
+    public static void selectShowFile() {
+        String fileType = selectFileType();
         Helper.writeFile(allMessages, filePathTxt);
         Helper.writeFile(Helper.makeJsonString(logger), filePathJson);
 
